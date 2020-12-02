@@ -30,9 +30,9 @@
                     <div class="ml-3">
                         <h6 class="card-title">Nome do Usuario</h6>
                         <div class="d-flex mb-2">
-                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"> </i> 6</h6>
-                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"> </i> 10</h6>
-                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"></i> 6</h6>
+                            <h6 class="card-subtitle text-muted mr-1"><i class="medalha-ouro fas fa-medal"> </i> 6</h6>
+                            <h6 class="card-subtitle text-muted mr-1"><i class="medalha-prata fas fa-medal"> </i> 10</h6>
+                            <h6 class="card-subtitle text-muted mr-1"><i class="medalha-bronze fas fa-medal"></i> 6</h6>
                         </div>
                     </div>
                 </div>
@@ -71,5 +71,15 @@ export default {};
   background-color: #18191a;
   border: 1px solid rgba(255, 255, 255, 0.125);
   border-radius: 0;
+}
+
+.medalha-ouro{
+    color: #e6bc53
+}
+.medalha-ouro{
+    
+}
+.medalha-ouro{
+    
 }
 </style>
