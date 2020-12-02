@@ -23,24 +23,23 @@
                 </div>
             </div>
         </div>
-        <div class="card text-white">
+        <div v-for="duvida in duvidas" :key="duvida.id" class="card text-white">
             <div class="card-body">
                 <div class="row col">
                     <b-avatar size="3rem"></b-avatar>
                     <div class="ml-3">
-                        <h6 class="card-title">Nome do Usuario</h6>
+                        <h6 class="card-title">{{duvida.autor.dados.username}}</h6>
                         <div class="d-flex mb-2">
-                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"> </i> 6</h6>
-                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"> </i> 10</h6>
-                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"></i> 6</h6>
+                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"> </i> {{ duvida.autor.medalhas.ouro.length }}</h6>
+                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"> </i> {{ duvida.autor.medalhas.prata.length }}</h6>
+                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"></i> {{ duvida.autor.medalhas.bronze.length }}</h6>
                         </div>
                     </div>
                 </div>
 
 
                 <h4 class="card-text mt-3">
-                Um exemplo de texto rápido para construir o título do card e fazer
-                preencher o conteúdo do card.
+                {{ duvida.titulo }}
                 </h4>
                 <a href="#" class="card-link">
                     <i class="fas fa-heart" style="font-size: 24px"></i>
@@ -63,7 +62,19 @@
 
 <script>
 import serviceDuvidas from '@/service/serviceDuvidas'
-export default {};
+
+export default {
+    name: 'duvidas',
+    data () {
+        return {
+            "duvidas": []
+        }
+    },
+    mounted() { 
+        serviceDuvidas.listarDuvidas().then(response => this.duvidas=response.data)
+    },
+    methods: { }
+};
 </script>
 
 <style scoped>

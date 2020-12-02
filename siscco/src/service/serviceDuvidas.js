@@ -3,6 +3,6 @@ import {API} from './config'
 
 export default {
     listarDuvidas: () => {
-        return API.get('/duvidas')
+        return API.get('/duvidas/')
     },
 }
