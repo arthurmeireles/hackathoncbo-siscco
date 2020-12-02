@@ -21,6 +21,9 @@
     <!-- Add to home screen for Windows -->
     <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/msapplication-icon-144x144.png">
     <meta name="msapplication-TileColor" content="#000000">
+    <script src="https://use.fontawesome.com/687fa6220f.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
     <% for (var chunk of webpack.chunks) {
         for (var file of chunk.files) {
           if (file.match(/\.(js|css)$/)) { %>

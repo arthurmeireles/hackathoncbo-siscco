@@ -1,25 +1,75 @@
 <template>
-    <b-container class='border-left border-right border-dark'>
-        <b-col class="h-100">
-            <b-container class="w-100 border-bottom border-dark">
-                <div class="pt-3 pb-3">
-                    <b-row>
-                        <b-avatar icon="person-fill"></b-avatar>
-                        <b-col>
-                            <b-span class="ml-2" style="color: #FFF;">Usuário</b-span>
-                            <div class="w-100"></div>
-                            <div class="rounded-circle" style="color: #FFF; width: 5px; height: 5px;" ></div>
-                        </b-col>
-                    </b-row>
-                    <h2 class="ml-5 pt-2" style="color: #FFF;">Qual a CID correta Infarto agudo do miocárdio?</h2>
+    <b-container>
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="input-group mb-3 btn-pill">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder=""
+                        aria-label="Example text with button addon"
+                        aria-describedby="button-addon1"
+                    />
+
+                    <div class="input-group-prepend">
+                        <button
+                        class="btn btn-outline-secondary "
+                        type="button"
+                        id="button-addon1"
+                        >
+                        Pesquisar
+                        </button>
+                    </div>
                 </div>
-            </b-container>
-        </b-col>
-    </b-container>
+            </div>
+        </div>
+        <div class="card text-white">
+            <div class="card-body">
+                <div class="row col">
+                    <b-avatar size="3rem"></b-avatar>
+                    <div class="ml-3">
+                        <h6 class="card-title">Nome do Usuario</h6>
+                        <div class="d-flex mb-2">
+                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"> </i> 6</h6>
+                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"> </i> 10</h6>
+                            <h6 class="card-subtitle text-muted mr-1"><i class="fas fa-medal"></i> 6</h6>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h4 class="card-text mt-3">
+                Um exemplo de texto rápido para construir o título do card e fazer
+                preencher o conteúdo do card.
+                </h4>
+                <a href="#" class="card-link">
+                    <i class="fas fa-heart" style="font-size: 24px"></i>
+                </a>
+                <a href="#" class="card-link">
+                    <i class="far fa-heart" style="font-size: 24px"></i>
+                </a>
+                <a href="#" class="card-link">
+                    <i class="fa fa-heart-broken" style="font-size: 24px">
+                    </i>
+                </a>
+                <a href="#" class="card-link">
+                    <i class="far fa-comment-alt" style="font-size: 24px"></i>
+                </a>
+
+            </div>
+        </div>
+  </b-container>
 </template>
 
 <script>
-export default {
-
-}
+import serviceDuvidas from '@/service/serviceDuvidas'
+export default {};
 </script>
+
+<style scoped>
+.card {
+  background-color: #18191a;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-radius: 0;
+}
+</style>
