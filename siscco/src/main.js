@@ -5,7 +5,10 @@ import router from './router'
 Vue.config.productionTip = false
 
 import Navbar from '@/components/Navbar'
-Vue.component('Navbar', Navbar);
+Vue.component('Navbar', Navbar)
+
+import btnAdicionarDuvida from '@/components/btnAdicionarDuvida'
+Vue.component('btnAdicionarDuvida', btnAdicionarDuvida)
 
 
 import VueSweetalert2 from 'vue-sweetalert2';
@@ -16,6 +19,12 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+
+import '@/assets/js/js.cookie.js'
+import '@/assets/js/settings.js'
+import '@/assets/js/sabia.js'
+
 
 
 

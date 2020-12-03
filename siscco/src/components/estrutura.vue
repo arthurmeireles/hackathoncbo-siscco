@@ -19,7 +19,11 @@ export default {
 </script>
 
 <style>
+#estrutura{
+    min-height: 100vh;
+    padding-bottom: 5vh;
+}
 .bg-fundo{
-    background-color: #18191a;
+    background-color:#18191a;
 }
 </style>

@@ -1,11 +1,8 @@
 <template>
     <div>
-        <b-navbar toggleable="lg border-bottom border-dark">
-            <b-navbar-brand href="#">
-                <div class="h2 mb-0">
-                    <b-icon-list style="color: #3086fa;" ></b-icon-list>
-                </div>
-            </b-navbar-brand>
+        <b-navbar toggleable="lg border-bottom border-dark mybg-color">
+            <b-button id="btn-menu-collapse" v-b-toggle class="rounded-circle d-flex align-items-center justify-content-center" href="#example-sidebar" @click.prevent><i class="fas fa-ellipsis-v"></i></b-button>
+
 
             <img width="160" class="m-auto" src="@/assets/img/logo-medium.svg" alt="">
 
@@ -14,6 +11,13 @@
                 <b-avatar icon="person-fill"></b-avatar>
             </b-navbar-nav>
         </b-navbar>
+
+        <b-sidebar id="example-sidebar" title="Sidebar" shadow>
+            <div class="px-3 py-2">
+                Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+                in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            </div>
+        </b-sidebar>
     </div>
 </template>
 
@@ -26,6 +30,10 @@
     border-radius: 50%;
     /* flex-shrink: 0; */
     background: var(--gray);
+}
+#btn-menu-collapse{
+    width: 40px;
+    height: 40px;
 }
 </style>
  

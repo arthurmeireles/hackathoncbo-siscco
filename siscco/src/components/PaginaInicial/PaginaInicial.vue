@@ -1,4 +1,7 @@
 <template>
+<div>
+
+    <btnAdicionarDuvida/>
     <b-container>
         <div class="card mb-2">
             <div class="card-body">
@@ -23,47 +26,62 @@
                 </div>
             </div>
         </div>
-        <div class="card text-white">
+        <div v-for="duvida in duvidas" :key="duvida.id" class="card text-white">
             <div class="card-body">
                 <div class="row col">
                     <b-avatar size="3rem"></b-avatar>
                     <div class="ml-3">
-                        <h6 class="card-title">Nome do Usuario</h6>
+                        <h6 class="card-title">{{duvida.autor.dados.username}}</h6>
                         <div class="d-flex mb-2">
-                            <h6 class="card-subtitle text-muted mr-1"><i class="medalha-ouro fas fa-medal"> </i> 6</h6>
-                            <h6 class="card-subtitle text-muted mr-1"><i class="medalha-prata fas fa-medal"> </i> 10</h6>
-                            <h6 class="card-subtitle text-muted mr-1"><i class="medalha-bronze fas fa-medal"></i> 6</h6>
+                            <h6 class="card-subtitle text-muted mr-1">
+                                <i class="medalha-ouro fas fa-medal"></i> {{ duvida.autor.medalhas.ouro.length }}
+                            </h6>
+                            <h6 class="card-subtitle text-muted mr-1">
+                                <i class="medalha-prata fas fa-medal"></i> {{ duvida.autor.medalhas.prata.length }}
+                            </h6>
+                            <h6 class="card-subtitle text-muted mr-1">
+                                <i class="medalha-bronze fas fa-medal"></i> {{ duvida.autor.medalhas.bronze.length }}</h6>
                         </div>
                     </div>
                 </div>
 
 
                 <h4 class="card-text mt-3">
-                Um exemplo de texto rápido para construir o título do card e fazer
-                preencher o conteúdo do card.
+                {{ duvida.titulo }}
                 </h4>
+                <reacoes/>
                 <a href="#" class="card-link">
-                    <i class="fas fa-heart" style="font-size: 24px"></i>
-                </a>
-                <a href="#" class="card-link">
-                    <i class="far fa-heart" style="font-size: 24px"></i>
-                </a>
-                <a href="#" class="card-link">
-                    <i class="fa fa-heart-broken" style="font-size: 24px">
-                    </i>
-                </a>
-                <a href="#" class="card-link">
-                    <i class="far fa-comment-alt" style="font-size: 24px"></i>
+                    <i class="far fa-comment-alt" style="font-size: 24px"></i> 540
                 </a>
 
             </div>
         </div>
   </b-container>
+</div>
 </template>
 
 <script>
+import reacoes from '../reacoes'
 import serviceDuvidas from '@/service/serviceDuvidas'
-export default {};
+import btnAdicionarDuvida from '../btnAdicionarDuvida'
+
+export default {
+    name: 'PaginaInicial',
+    components: {
+        btnAdicionarDuvida,
+        reacoes
+    },
+    data () {
+        return {
+            "duvidas": []
+        }
+    },
+    mounted() { 
+        serviceDuvidas.listarDuvidas().then(response => {
+            this.duvidas=response.data
+        })
+    },
+}
 </script>
 
 <style scoped>
@@ -73,13 +91,5 @@ export default {};
   border-radius: 0;
 }
 
-.medalha-ouro{
-    color: #e6bc53
-}
-.medalha-ouro{
-    
-}
-.medalha-ouro{
-    
-}
+
 </style>

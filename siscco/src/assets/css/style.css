@@ -1,3 +1,55 @@
 .btn-pill{
     border-radius: 30em;
 }
+
+
+#modalAdicionarDuvida header{
+    background-color: #fff;
+    color: #212529;
+}
+
+.card{
+    background-color: #242526 !important;
+}
+
+.mybg-color{
+    background-color: #242526 !important;
+}
+
+@media(max-width: 500px){
+    .sai-no-mobile{
+        display: none
+    }
+}
+
+
+#btnAdicionarDuvida{
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    z-index: 100;
+    /* left: 90%; */
+    right: 15px;
+    bottom: 15px;
+}
+
+.medalha-ouro{
+    color: #e6bc53
+}
+.medalha-prata{
+    color: 	#C0C0C0
+}
+.medalha-bronze{
+    color: 	#cd7f32
+}
+
+
+#example-sidebar{
+    margin-top: 72px !important;
+}
+
+@media(max-width: 500px){
+    #example-sidebar{
+        width: 100%;
+    }
+}
