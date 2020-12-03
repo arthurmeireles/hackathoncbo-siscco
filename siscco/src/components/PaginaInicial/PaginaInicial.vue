@@ -41,18 +41,18 @@
                 <h4 class="card-text mt-3">
                 {{ duvida.titulo }}
                 </h4>
-                <a href="#" class="card-link">
-                    <i class="fas fa-heart" style="font-size: 24px"></i>
+                <a href="#" v-on:click="like(1, duvida.id)" class="card-link">
+                    {{ duvida.likes }} <i class="fas fa-heart" style="font-size: 24px"></i>
                 </a>
                 <a href="#" class="card-link">
                     <i class="far fa-heart" style="font-size: 24px"></i>
                 </a>
-                <a href="#" class="card-link">
-                    <i class="fa fa-heart-broken" style="font-size: 24px">
+                <a href="#" v-on:click="dislike(1, duvida.id)" class="card-link">
+                   {{ duvida.dislikes }} <i class="fa fa-heart-broken" style="font-size: 24px">
                     </i>
                 </a>
                 <a href="#" class="card-link">
-                    <i class="far fa-comment-alt" style="font-size: 24px"></i>
+                    {{ duvida.respostas.lenght }} <i class="far fa-comment-alt" style="font-size: 24px"></i>
                 </a>
 
             </div>
@@ -70,10 +70,29 @@ export default {
             "duvidas": []
         }
     },
-    mounted() { 
+    mounted() {
         serviceDuvidas.listarDuvidas().then(response => this.duvidas=response.data)
     },
-    methods: { }
+    methods: {
+      like: function (user_id, duvida_id) {
+        serviceDuvidas.likeDuvida(user_id, duvida_id).then(response => {
+          this.duvidas.forEach(function (item, indice, array) {
+            if(item.id == duvida_id){
+              array[indice] = response.data;
+            }
+          });
+        })
+      },
+      dislike: function (user_id, duvida_id) {
+        serviceDuvidas.dislikeDuvida(user_id, duvida_id).then(response => {
+          this.duvidas.forEach(function (item, indice, array) {
+            if(item.id == duvida_id){
+              array[indice] = response.data;
+            }
+          });
+        })
+      },
+    }
 };
 </script>
 
