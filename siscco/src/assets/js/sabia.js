@@ -1,31 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>siscco</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
-    <!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
-    <!-- Add to home screen for Android and modern mobile browsers -->
-    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json">
-    <meta name="theme-color" content="#4DBA87">
 
-    <!-- Add to home screen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="siscco">
-    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/apple-touch-icon-152x152.png">
-    <link rel="mask-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/safari-pinned-tab.svg" color="#4DBA87">
-    <!-- Add to home screen for Windows -->
-    <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/msapplication-icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#000000">
-    <script src="https://use.fontawesome.com/687fa6220f.js"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    /*!
+/*!
  * JavaScript Cookie v2.1.0
  * https://github.com/js-cookie/js-cookie
  *
@@ -173,8 +147,6 @@
 	return init(function () {});
 }));
 
-    </script>
-    <script type="text/javascript">
 
 /**
  * Classe que representa um token de autorização.
@@ -185,7 +157,7 @@
  * @param {number} expirationTime - Número de segundos que o token durará.
  * @param {string} scope - A lista de escopos (separados por espaço) que foi autorizado pelo usuário.
  */
-var Token = function(value, expirationTimeInSeconds, scope) {
+export const Token = (value, expirationTimeInSeconds, scope) => {
   
   /* Atributos */
 
@@ -266,7 +238,7 @@ var Token = function(value, expirationTimeInSeconds, scope) {
  * @param {string} redirectURI - URI de redirecionamento da aplicação cadastrada no SabiaClient.
  *
  */
- var SabiaClient = function(authHost, clientID, redirectURI) {
+export const SabiaClient = (authHost, clientID, redirectURI) => {
 
   /* Atributos privados */
 
@@ -451,21 +423,3 @@ var Token = function(value, expirationTimeInSeconds, scope) {
   };
   
 };
-    </script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-    <% for (var chunk of webpack.chunks) {
-        for (var file of chunk.files) {
-          if (file.match(/\.(js|css)$/)) { %>
-    <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
-  </head>
-  <body>
-    <noscript>
-      This is your fallback content in case JavaScript fails to load.
-    </noscript>
-    <div id="app"></div>
-    <!-- Todo: only include in production -->
-    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
