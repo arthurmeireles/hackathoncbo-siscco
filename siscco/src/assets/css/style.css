@@ -21,7 +21,12 @@
         display: none
     }
 }
-
+.b-sidebar-header{
+    background-color: #f8f9fa;
+}
+.b-sidebar-body ul .nav-item .nav-link{
+    color: #007bff 
+}
 
 #btnAdicionarDuvida{
     position: fixed;
@@ -51,5 +56,8 @@
 @media(max-width: 500px){
     #example-sidebar{
         width: 100%;
+    }
+    .b-sidebar-body ul .nav-item .nav-link{
+        text-align: center;
     }
 }

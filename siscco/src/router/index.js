@@ -4,6 +4,9 @@ import login from '../views/login';
 import PaginaInicial from '../components/PaginaInicial/PaginaInicial'
 import PaginaDuvida from '../components/PaginaDuvida/PaginaDuvida'
 import minhasDuvidas from '../components/minhasDuvidas/minhasDuvidas'
+import emAlta from '../components/emAlta/emAlta'
+import minhasMedalhas from '../components/minhasMedalhas/minhasMedalhas'
+import cursos from '../components/cursos/cursos'
 
 
 Vue.use(Router);
@@ -34,6 +37,18 @@ const routes = [
             {
               path: 'minhasDuvidas', name: 'minhasDuvidas', component: minhasDuvidas,
               meta: { title: 'Minhas Dúvidas' }
+            },
+            {
+              path: 'emAlta', name: 'emAlta', component: emAlta,
+              meta: { title: 'Em Alta' }
+            },
+            {
+              path: 'minhasMedalhas', name: 'minhasMedalhas', component: minhasMedalhas,
+              meta: { title: 'Minhas Medalhas' }
+            },
+            {
+              path: 'cursos', name: 'cursos', component: cursos,
+              meta: { title: 'Cursos AVASUS' }
             }
         ]
     }

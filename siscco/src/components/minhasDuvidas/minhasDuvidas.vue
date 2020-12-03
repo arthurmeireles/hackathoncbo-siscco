@@ -10,7 +10,6 @@
 
 
 <script>
-import reacoes from '@/components/reacoes'
 import cardDuvida from '@/components/cardDuvida'
 import btnAdicionarDuvida from '@/components/btnAdicionarDuvida'
 
@@ -18,6 +17,11 @@ export default {
     name:  'minhasDuvidas',
     components: {
         cardDuvida
-    }
+    },
+    data() {
+        return {
+            
+        }
+    },
 }
 </script>

@@ -21,10 +21,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
-import '@/assets/js/js.cookie.js'
-import '@/assets/js/settings.js'
-import '@/assets/js/sabia.js'
-
 
 
 
