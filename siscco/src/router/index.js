@@ -49,7 +49,7 @@ const routes = [
             {
               path: 'cursos', name: 'cursos', component: cursos,
               meta: { title: 'Cursos AVASUS' }
-            }
+            },
         ]
     }
 
