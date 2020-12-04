@@ -1,5 +1,10 @@
 <template>
     <div>
+                <div class="row col">
+            <h2 class="text-white mt-5">
+                Cursos disponíveis no AVASUS
+            </h2>
+        </div>
         <div class="card text-white my-border-radius mt-5">
             <div class="card-body pb-2 ">
                 <div class="row col">

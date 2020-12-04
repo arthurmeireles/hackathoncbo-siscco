@@ -2,25 +2,25 @@
     <div class="mb-3">
             <a href="#" v-if="this.likee" @click="like" class="card-link">
                 <i class="fas fa-heart" style="font-size: 24px"></i>
-                <span class="ml-2 mb-1" style="font-size: 18px">{{duvida.likes}} </span>
+                <span class="ml-2 mb-1" style="font-size: 18px">{{resposta.likes}} </span>
                 <span class="sai-no-mobile mb-1" style="font-size: 18px">curtidas</span>
             </a>
             <a href="#" v-if="!this.likee" @click="like" class="card-link">
 
                 <i class="far fa-heart" style="font-size: 24px"></i>
-                <span class="ml-2 mb-1" style="font-size: 18px">{{duvida.likes}} </span>
+                <span class="ml-2 mb-1" style="font-size: 18px">{{resposta.likes}} </span>
                 <span class="sai-no-mobile mb-1" style="font-size: 18px">curtidas</span>
             </a>
             <a href="#" v-if="this.deslike" @click="dislike" class="card-link">
 
                 <i class="fa fa-heart-broken" style="font-size: 24px"></i>
-                <span class="ml-2 mb-1" style="font-size: 18px">{{duvida.dislikes}} </span>
+                <span class="ml-2 mb-1" style="font-size: 18px">{{resposta.dislikes}} </span>
                 <span class="sai-no-mobile mb-1" style="font-size: 18px">descurtidas</span>
             </a>
             <a href="#" v-if="!this.deslike" @click="dislike" class="card-link">
 
                 <i class="fa fa-heart-broken" style="font-size: 24px"></i>
-                <span class="ml-2 mb-1" style="font-size: 18px">{{duvida.dislikes}}</span>
+                <span class="ml-2 mb-1" style="font-size: 18px">{{resposta.dislikes}}</span>
                 <span class="sai-no-mobile mb-1" style="font-size: 18px">descurtidas</span>
                 
             </a>
@@ -35,35 +35,33 @@ import reacoes from '@/components/reacoes'
 export default {
 
     name: 'reacoes',
+
+
     props: [
-        'duvida' 
+        'resposta' // ESSE POST ME REFIRO A QUALQUER TIPO DE COISA QUE FOR INCLUIDA POR USUARIO
     ],
     data() {
         return {
             likee: false,
             deslike: false,
-            duvidaId:  this.duvida.id
         }
     },
 
     methods: {
         like: function(){
-            serviceReacoes.curtirDuvida(this.duvidaId).then(resposta =>{
-                this.duvida = resposta.data
+            serviceReacoes.curtirResposta(this.resposta.id).then(resposta =>{
+                this.resposta = resposta.data
             })
 
         },
 
         dislike: function(){
-            serviceReacoes.discurtiDuvida(this.duvidaId).then(resposta =>{
-                this.duvida = resposta.data
+            serviceReacoes.discurtiResposta(this.resposta.id).then(resposta =>{
+                this.resposta = resposta.data
             })
  
         },
 
-    },
-    mounted() {
-        
     },
 };
 </script>

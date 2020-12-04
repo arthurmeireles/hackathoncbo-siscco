@@ -4,17 +4,15 @@ import {API} from './config'
 export default {
   
     curtirDuvida: (duvidaId) => {
-        return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`, {
+        return API.get(`duvidas/like/?duvida_id=${duvidaId}`, {
           headers: {
               'Authorization': 'Token '+localStorage.getItem('token')
           }
-      }
-        
-        )
+        })
     },
     // Vai dizer que é ruim
-    discurtiDuvida: ( duvidaId) => {
-      return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`, {
+    discurtiDuvida: (duvidaId) => {
+      return API.get(`duvidas/dislike/?duvida_id=${duvidaId}`, {
           headers: {
               'Authorization': 'Token '+localStorage.getItem('token')
           }
@@ -23,8 +21,8 @@ export default {
 
 
 
-    curtirResposta: (duvidaId) => {
-      return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`,{
+    curtirResposta: (respostaId) => {
+      return API.get(`respostas/like/?resposta_id=${respostaId}`,{
         headers: {
             'Authorization': 'Token '+localStorage.getItem('token')
         }
@@ -33,8 +31,8 @@ export default {
       )
   },
   // Vai dizer que é ruim
-  discurtiResposta: ( duvidaId) => {
-    return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`, {
+  discurtiResposta: ( respostaId) => {
+    return API.get(`respostas/dislike/?resposta_id=${respostaId}`, {
         headers: {
             'Authorization': 'Token '+localStorage.getItem('token')
         }

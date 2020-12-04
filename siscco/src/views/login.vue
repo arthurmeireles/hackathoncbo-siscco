@@ -34,7 +34,7 @@
                             </div>
                             <button type="button" class="btn btn-primary btn-block btn-lg btn-pill">Enviar</button>
                         </form>
-                        <a href="" class="btn-outline-dark btn-block btn-lg btn-pill mt-5" id="sabia-button-login">
+                        <a href="" class="btn btn-outline-dark btn-block btn-lg btn-pill mt-5" id="sabia-button-login">
                             <img src="@/assets/img/logo-sabia.png"  width="30" alt="" srcset="">
                             Entrar com o Sabiá
                         </a>

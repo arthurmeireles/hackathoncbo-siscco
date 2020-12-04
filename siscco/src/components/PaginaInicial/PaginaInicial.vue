@@ -1,6 +1,10 @@
 <template>
 <div>
-
+    <div class=" col">
+        <h2 class="text-white mt-5">
+            Página Inicial
+        </h2>
+    </div>
     <btnAdicionarDuvida/>
     <b-container>
         <!-- <div class="card mb-2">

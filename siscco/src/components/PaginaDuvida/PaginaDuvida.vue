@@ -1,6 +1,13 @@
 <template>
     <div>
-        <div class="card text-white my-border-radius mt-5">
+
+        <div class="row col">
+            <h2 class="text-white mt-5">
+                Detalhamento de Respostas
+            </h2>
+        </div>
+
+        <div class="card text-white my-border-radius mt-3">
             <div class="card-body pb-2 ">
                 <div class="row col">
                     <b-avatar size="3rem"></b-avatar>
@@ -86,7 +93,7 @@
                         <p class="text-white">
                             {{duvida.respostas.destaque.descricao}}
                         </p>
-                        <reacoes/>
+                        <reacoesResposta :resposta="duvida.respostas.destaque"/>
                     </div>
                 </div>
             </div>
@@ -128,7 +135,7 @@
                         <p class="text-white">
                             {{resposta.descricao}}
                         </p>
-                        <reacoes/>
+                        <reacoesResposta :resposta="resposta"/>
                     </div>
                 </div>
 
@@ -168,6 +175,8 @@
 
 <script>
 import reacoes from '@/components/reacoes'
+import reacoesResposta from '@/components/reacoesResposta'
+
 import adicionarComentario from '@/components/adicionarComentario'
 import btnAdicionarDuvida from '@/components/btnAdicionarDuvida'
 import serviceDuvidas from '@/service/serviceDuvidas'
@@ -177,7 +186,8 @@ export default {
     components:{
         reacoes,
         adicionarComentario,
-        btnAdicionarDuvida
+        btnAdicionarDuvida,
+        reacoesResposta
     },
     data() {
         return {

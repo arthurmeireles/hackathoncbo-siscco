@@ -1,5 +1,10 @@
 <template>
     <div>
+        <div class="row col">
+            <h2 class="text-white mt-5">
+                Em Alta
+            </h2>
+        </div>
         <div v-for="duvida in listaEmAlta" :key="duvida.id">
             <cardDuvida :duvida="duvida"/>
         </div>
