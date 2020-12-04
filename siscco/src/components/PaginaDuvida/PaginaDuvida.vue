@@ -34,8 +34,8 @@
                 <p class="text-white">
                     {{ duvida.descricao }}
                 </p>
-                <reacoes/>
-                <adicionarComentario/>
+                <reacoes :duvida="duvida" />
+                <adicionarComentario :duvidaId="duvida.id"/>
             </div>
         </div>
 
@@ -185,6 +185,9 @@ export default {
             duvida: ''
         }
     },
+    props:[
+        'usuario'
+    ],
 
     mounted() {
 

@@ -1,11 +1,11 @@
 <template>
     <div class="mb-3">
-            <a href="#" v-if="this.like" @click="like" class="card-link">
+            <a href="#" v-if="this.likee" @click="like" class="card-link">
                 <i class="fas fa-heart" style="font-size: 24px"></i>
                 <span class="ml-2 mb-1" style="font-size: 18px">{{duvida.likes}} </span>
                 <span class="sai-no-mobile mb-1" style="font-size: 18px">curtidas</span>
             </a>
-            <a href="#" v-if="!this.like" @click="like" class="card-link">
+            <a href="#" v-if="!this.likee" @click="like" class="card-link">
 
                 <i class="far fa-heart" style="font-size: 24px"></i>
                 <span class="ml-2 mb-1" style="font-size: 18px">{{duvida.likes}} </span>
@@ -42,7 +42,7 @@ export default {
     ],
     data() {
         return {
-            like: false,
+            likee: false,
             deslike: false,
         }
     },
@@ -50,20 +50,20 @@ export default {
     methods: {
         like: function(){
             console.log(duvida.id)
-            serviceReacoes.curtirDuvida(usuarioId, duvida.id).then(resposta =>{
+            serviceReacoes.curtirDuvida(duvida.id).then(resposta =>{
                 console.log(resposta.data)
             })
-            this.like = true
-            this.deslike = false
+            this.likee = !this.like
+            this.deslike = !this.deslike
         },
 
         dislike: function(){
             console.log(duvida.id)
-            serviceReacoes.discurtiDuvida(usuarioId, duvida.id).then(resposta =>{
+            serviceReacoes.discurtiDuvida(duvida.id).then(resposta =>{
                 console.log(resposta.data)
             })
-            this.deslike = true
-            this.like = false
+            this.deslike = !this.deslike
+            this.likee = !this.deslike
         },
 
     },

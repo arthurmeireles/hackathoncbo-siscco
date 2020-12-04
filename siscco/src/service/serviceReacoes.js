@@ -3,12 +3,41 @@ import {API} from './config'
 
 export default {
   
-    curtirDuvida: (usuarioId, duvidaId) => {
-        return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`)
+    curtirDuvida: (duvidaId) => {
+        return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`, {
+          headers: {
+              'Authorization': 'Token '+localStorage.getItem('token')
+          }
+      }
+        
+        )
+    },
+    // Vai dizer que é ruim
+    discurtiDuvida: ( duvidaId) => {
+      return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`, {
+          headers: {
+              'Authorization': 'Token '+localStorage.getItem('token')
+          }
+      })
     },
 
-    // Vai dizer que é ruim
-    discurtiDuvida: (usuarioId, duvidaId) => {
-      return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`)
-    },
+
+
+    curtirResposta: (duvidaId) => {
+      return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`,{
+        headers: {
+            'Authorization': 'Token '+localStorage.getItem('token')
+        }
+    }
+      
+      )
+  },
+  // Vai dizer que é ruim
+  discurtiResposta: ( duvidaId) => {
+    return API.get(`duvidas/like?user_id=${usuarioId}&duvida_id=${duvidaId}`, {
+        headers: {
+            'Authorization': 'Token '+localStorage.getItem('token')
+        }
+    })
+  },
 }
