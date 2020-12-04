@@ -19,6 +19,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.20.0",
+    "jquery": "^3.5.1",
     "vue": "^2.6.12",
     "vue-router": "^3.0.1",
     "vue-sweetalert2": "^4.1.1"

@@ -32,7 +32,7 @@
     position: fixed;
     width: 75px;
     height: 75px;
-    z-index: 100;
+    /* z-index: 100; */
     /* left: 90%; */
     right: 15px;
     bottom: 15px;

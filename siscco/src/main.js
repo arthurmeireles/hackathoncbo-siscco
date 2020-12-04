@@ -19,8 +19,8 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-
+import '@/assets/js/js.cookie.js'
+import '@/assets/js/sabia.js'
 
 
 

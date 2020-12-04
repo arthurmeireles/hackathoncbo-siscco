@@ -12,14 +12,11 @@
             centered 
             id="modalAdicionarDuvida" 
             title="Publicar Dúvida">
-            <b-form-input class="mb-3" v-model="nova_duvida.titulo" placeholder="Titutlo da sua dúvida"></b-form-input>
+                <input class="form-control mb-3" type="text" v-model="nova_duvida.titulo" placeholder="Titulo da Duvida">
 
 
-            <b-form-textarea
-                id="textarea-default"
-                placeholder="Descreva sua dúvida Aqui"
-                rows="4"
-            ></b-form-textarea>
+                <textarea class="form-control"  v-model="nova_duvida.descricao"  placeholder="Descrição da dúvida" id="exampleFormControlTextarea1" rows="3"></textarea>
+
             <template #modal-footer>
                 <div class="w-100 d-flex justify-content-between">
                     <b-button
@@ -46,14 +43,18 @@
 
 
 <script>
+import serviceDuvidas from '@/service/serviceDuvidas'
 export default {
     name: 'btnAdicionarDuvida',
     data(){
         return{
             show: false,
             nova_duvida: {
+                autor: localStorage.getItem('usuarioId'),
                 titulo: '',
-                descricao: ''
+                descricao: '',
+                likes: 0,
+                deslikes: 0
             }
         }
     },
@@ -70,8 +71,9 @@ export default {
 
         publicarDuvida: function(){
             
-            // INALDO COLOCA O SERVIÇO AQUI SE CONSEGUIR COLOCA O SUCCES DO SWEETALERT
-            
+            serviceDuvidas.criarDuvida(this.nova_duvida).then(resposta =>{
+                console.log(resposta.data)
+            })            
             this.show = false
 
         }

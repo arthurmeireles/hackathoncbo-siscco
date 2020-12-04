@@ -18,10 +18,14 @@ export default {
     components: {
         cardDuvida
     },
+    props: [
+        'usuario'
+    ],
     data() {
         return {
             
         }
     },
+
 }
 </script>

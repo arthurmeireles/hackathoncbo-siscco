@@ -57,6 +57,9 @@ export default {
     components:{
         btnAdicionarDuvida
     },
+    props: [
+        'usuario'
+    ],
     data() {
         return {
             

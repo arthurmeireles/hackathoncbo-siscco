@@ -1,14 +1,12 @@
 <template>
     <div class="d-flex mb-3">
         <b-avatar class="mr-2" size="2.5rem"></b-avatar>
-        <b-form-input
-            class="rounded-pill col"
-            v-model="mensagem"
-            placeholder="Digite aqui sua resposta"
-            ></b-form-input>
+
+         <input v-model="resposta.descricao" class="form-control rounded-pill col" type="text" placeholder="Digite aqui sua resposta">
+
         
-        <b-button class="ml-2 btn-web" pill variant="primary">Publicar</b-button>
-        <b-button class="ml-2 btn-mobile" pill variant="primary"><i class="fas fa-paper-plane"></i></b-button>
+        <b-button @click="publicarResposta" class="ml-2 btn-web" pill variant="primary">Publicar</b-button>
+        <b-button @click="publicarResposta" class="ml-2 btn-mobile" pill variant="primary"><i class="fas fa-paper-plane"></i></b-button>
 
 
         
@@ -24,8 +22,13 @@
     }
     .form-control{
         background-color: #242526;
+        color: white;
     }
 
+/* autor
+duvida
+likes 
+deslikes descricao */
 
     @media(max-width: 500px){
         .btn-mobile{
@@ -38,13 +41,30 @@
 </style>
 
 <script>
+
+import serviceResposta from "@/service/serviceResposta"
 export default {
   name: "",
-  props: [],
+  props: ["duvidaId"],
   data() {
     return {
-        mensagem: ''
+        resposta: {
+            autor: localStorage.getItem('usuarioId'),
+            duvida: this.duvidaId,
+            likes: 0,
+            deslikes: 0,
+            descricao: ''
+        }
     };
-  }
+  },
+  methods: {
+      publicarResposta: function (){
+          serviceResposta.responder(this.resposta).then(resposta => {
+              console.log(resposta.data)
+              alert("Resposta Enviada")
+          })
+          this.resposta.descricao = ''
+      }
+  },
 };
 </script>

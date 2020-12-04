@@ -34,10 +34,10 @@
                             </div>
                             <button type="button" class="btn btn-primary btn-block btn-lg btn-pill">Enviar</button>
                         </form>
-                        <button type="button" class="btn-outline-dark btn-block btn-lg btn-pill mt-5"  id="sabia-logout-button" >
+                        <a href="" class="btn-outline-dark btn-block btn-lg btn-pill mt-5" id="sabia-button-login">
                             <img src="@/assets/img/logo-sabia.png"  width="30" alt="" srcset="">
                             Entrar com o Sabiá
-                        </button>
+                        </a>
 
                     </div>
 
@@ -50,8 +50,6 @@
     </div>
 </template>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script>
 
@@ -68,8 +66,17 @@ export default {
     },
     methods:{
 
-
     },
+
+    mounted () {
+        var SABIA_URL = 'https://login.sabia.ufrn.br/';
+        var SABIA_CLIENT_ID = '6Y9LsPN5ssIPsVTVcNQaX4psuGzFZ1klETXRXlnS';
+        var SABIA_CLIENT_REDIRECT_URI = 'http://localhost:8080/auth/PaginaInicial';
+        var sabia = new SabiaClient(SABIA_URL, SABIA_CLIENT_ID, SABIA_CLIENT_REDIRECT_URI);
+        sabia.init();
+        var a = sabia.getLoginURL();
+        $("#sabia-button-login").attr('href', a);
+    }
 }
 
 </script>

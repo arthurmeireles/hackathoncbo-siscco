@@ -3,18 +3,30 @@
         <Navbar></Navbar>
 
         <div class="container">
-            <router-view></router-view> 
+            <router-view :usuario="usuario"></router-view> 
         </div>
     </div>
 </template>
 
 <script>
 import Navbar from './Navbar'
+import serviceUsuario from "@/service/serviceUsuario"
 export default {
     Components:[
         Navbar
-    ]
-    
+    ],
+
+    data() {
+        return {
+            usuario: ''
+        }
+    },
+    mounted() {
+        serviceUsuario.getUsuario(localStorage.getItem('usuarioId')).then(resposta=>{
+            this.usuario = resposta.data
+            console.log(resposta.data)
+        })
+    },
 }
 </script>
 

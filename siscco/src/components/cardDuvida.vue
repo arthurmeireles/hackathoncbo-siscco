@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <adicionarComentario />
+                <adicionarComentario :duvidaId="duvida.id"/>
 
 
             </div>
